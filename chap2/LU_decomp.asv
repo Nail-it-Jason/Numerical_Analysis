@@ -1,0 +1,19 @@
+function A = LU_decomp(A, b,n)
+for j = 1 : n-1
+    if abs(A(j, j)) < eps; error('zero pivot encountered'); end
+    % 消去列j
+    for i = j+1 : n
+    % 消去元素a(i, j)
+    mult = A(i, j) / A(j, j);
+    A(i, j) = mult;
+    for k = j+1 : n
+        A(i, k) = A(i, k) - mult*A(j, k);
+        
+    end
+    end
+end
+% A包含L和U, 两步回代
+% Ux = c, Lc=b
+
+end
+
