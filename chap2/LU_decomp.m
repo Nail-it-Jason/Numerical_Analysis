@@ -14,13 +14,13 @@ for j = 1 : n-1
 end
 % A包含L和U, 两步回代
 % Ux = c, Lc=b
-% 1
-% 3 1
-% 6 2 1
-c = ones(1, n);
+% 1      c1
+% 2 1    c2
+% 1 0 1  c3
+c = b;
 for m = 2:n
     for t = 1:m-1
-        c(m) = b(m)-A(m, t)*c(t);
+        c(m) = c(m)-A(m, t)*c(t);
     end
 end
 
